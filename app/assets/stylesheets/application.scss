@@ -63,6 +63,31 @@
 	font-size: 50px;
 }
 
+//DASHBOARD
+.dashboard-rep-photo {
+	width: 150px;
+}
+
+.rep-info-table td {
+	padding: 0px;
+}
+
+th {
+	border-bottom: 1px #000000 solid;
+}
+
+.rep-schedule-table {
+	width: 100%;
+
+	td, th {
+		padding: 5px;
+	}
+	tr:nth-child(even) {
+	  background-color: #F7F7F7;
+	}
+}
+
+
 
 // FOOTER
 .site-footer {
