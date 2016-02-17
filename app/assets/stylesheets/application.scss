@@ -30,8 +30,13 @@
 	background-color: #FF5108;
 }
 
-.red-red-background {
+.red-background {
 	background-color: #FF2321;
+}
+
+.red-background:hover {
+	background-color: #FF2321;
+	border: 1px #FFFFFF solid;
 }
 
 .black-background {
@@ -65,7 +70,7 @@
 
 //DASHBOARD
 .dashboard-rep-photo {
-	width: 150px;
+	width: 180px;
 }
 
 .rep-info-table td {
@@ -73,7 +78,7 @@
 }
 
 th {
-	border-bottom: 1px #000000 solid;
+	border-bottom: 1px #B6B6B4 solid;
 }
 
 .rep-schedule-table {
