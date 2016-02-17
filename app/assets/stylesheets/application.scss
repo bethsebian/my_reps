@@ -1,0 +1,64 @@
+@import 'materialize';
+
+// TEXT
+.white-text {
+	color: #FFFFFF;
+}
+
+.orange-text {
+	color: #FF5108;
+}
+
+.red-text {
+	color: #FF2321;
+}
+
+.black-text {
+	color: #000000;
+}
+
+.yellow-text {
+	color: #F7FF3F;
+}
+
+// BACKGROUNDS
+.white-background {
+	background-color: #FFFFFF;
+}
+
+.orange-background {
+	background-color: #FF5108;
+}
+
+.red-background {
+	background-color: #FF2321;
+}
+
+.black-background {
+	background-color: #000000;
+}
+
+.yellow-background {
+	background-color: #F7FF3F;
+}
+
+// NAVBAR
+// Navbar Style
+#nav-text a {
+	color: #000000;
+}
+
+// HOMEPAGE
+// Image on homepage
+.parallax {
+	position: absolute;
+	left: 10%;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 250px;
+}
+
+// Icons on homepage
+.material-icons {
+	font-size: 50px;
+}
