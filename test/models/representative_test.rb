@@ -58,7 +58,7 @@ class RepresentativeTest < ActiveSupport::TestCase
   end
 
 	test "it sets a chamber, rank, and state" do
-		expected = "U.S. Senate, Junior, Colorado (at-large)"
+		expected = "U.S. Senate, Colorado"
 		assert_equal expected, @rep.chamber_rank_state
   end
 

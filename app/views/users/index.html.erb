@@ -55,42 +55,29 @@
         <div class="col s12 m12">
           <div class="icon-block">
   					<table class="rep-schedule-table">
-  						<tr>
-  						  <th><h6><b>Time</h6></b></td>
-  						  <th>Event Name</td>
-  						  <th>Location</td>
-  						  <th>Committee Name</td>
-  						  <th>Agenda</td>
-  						</tr>
-  						<tr>
-  							<td><h6><b>Time</h6></b></td>
-  						  <td>Event Name</td>
-  						  <td>Location</td>
-  						  <td>Committee Name</td>
-  						  <td><a href="#">Agenda</a></td>
-  						</tr>
-  						<tr>
-  							<td><h6><b>Time</h6></b></td>
-  						  <td>Event Name</td>
-  						  <td>Location</td>
-  						  <td>Committee Name</td>
-  						  <td><a href="#">Agenda</a></td>
-  						</tr>
-  						<tr>
-  							<td><h6><b>Time</h6></b></td>
-  						  <td>Event Name</td>
-  						  <td>Location</td>
-  						  <td>Committee Name</td>
-  						  <td><a href="#">Agenda</a></td>
-  						</tr>
-  						<tr>
-  							<td><h6><b>Time</h6></b></td>
-  						  <td>Event Name</td>
-  						  <td>Location</td>
-  						  <td>Committee Name</td>
-  						  <td><a href="#">Agenda</a></td>
-  						</tr>
-  					</table>
+              <tr>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Committee Name</th>
+                <th>Room</th>
+                <th>Bills</th>
+                <th>Description</th>
+                <th>Links</th>
+              </tr>
+              <% representative.committee_hearings.each do |hearing| %>
+    						<tr>
+                  <th>hearing.type</th>
+                  <th>hearing.date</th>
+                  <th>hearing.time</th>
+                  <th>hearing.committee_name</th>
+                  <th>hearing.room</th>
+                  <th>hearing.bills</th>
+                  <th>hearing.description.</th>
+                  <th>hearing.more_info</th>
+    						</tr>
+              <% end %>
+    				</table>
           </div>
         </div>
       </div>
