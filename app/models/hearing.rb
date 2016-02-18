@@ -15,12 +15,12 @@ class Hearing
 
 	def date
 		date_object = Date.parse(@data[:occurs_at])
-		date_string = "#{date_object.strftime('%B%e, %Y')}"
+		date_string = "#{date_object.strftime('%B %e, %Y')}"
 	end
 
 	def time
-		date_object = Date.parse(@data[:occurs_at])
-		time_string = "#{date_object.strftime('%l:M% %p')}"
+		date_object = DateTime.parse(@data[:occurs_at])
+		time_string = "#{date_object.strftime('%l:%M %p')}".strip
 	end
 
 	def committee_name
@@ -32,8 +32,9 @@ class Hearing
 	end
 
 	def bills
-		"FIXXXXX"
-		# @data[:bill_ids]
+		@data[:bill_ids].map do |bill_id|
+			"<a href='#{service.bill_url(bill_id)}'>#{service.bill_name(bill_id)}</a>"
+		end
 	end
 
 	def description
@@ -41,7 +42,6 @@ class Hearing
 	end
 
 	def url
-		@data[:url]
-		"<a href='#{@data[:url]}'>'more info...'</a>"
+		"<a href='#{@data[:url]}'>more info...</a>"
 	end
 end

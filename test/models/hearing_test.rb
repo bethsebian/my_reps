@@ -1,50 +1,66 @@
 require 'test_helper'
 
 class HearingTest < ActiveSupport::TestCase
+	attr_reader :hearing
+
 	def data
-		{:bioguide_id=>"G000562",
-		 :birthday=>"1974-08-22",
-		 :chamber=>"senate",
-		 :contact_form=>nil,
-		 :crp_id=>"N00030780",
-		 :district=>nil,
-		 :facebook_id=>"160924893954206",
-		 :fax=>nil,
-		 :fec_ids=>["H0CO04122", "S4CO00395"],
-		 :first_name=>"Cory",
-		 :gender=>"M",
-		 :govtrack_id=>"412406",
-		 :icpsr_id=>21112,
-		 :in_office=>true,
-		 :last_name=>"Gardner",
-		 :lis_id=>"S377",
-		 :middle_name=>nil,
-		 :name_suffix=>nil,
-		 :nickname=>nil,
-		 :oc_email=>"Sen.Gardner@opencongress.org",
-		 :ocd_id=>"ocd-division/country:us/state:co",
-		 :office=>"354 Russell Senate Office Building",
-		 :party=>"R",
-		 :phone=>"202-224-5941",
-		 :senate_class=>2,
-		 :state=>"CO",
-		 :state_name=>"Colorado",
-		 :state_rank=>"junior",
-		 :term_end=>"2021-01-03",
-		 :term_start=>"2015-01-06",
-		 :thomas_id=>"01998",
-		 :title=>"Sen",
-		 :twitter_id=>"SenCoryGardner",
-		 :votesmart_id=>30004,
-		 :website=>"http://www.gardner.senate.gov",
-		 :youtube_id=>nil
-	 	}
+		{
+		  "committee_id": "HSIF",
+		  "occurs_at": "2013-01-22T15:00:00Z",
+		  "congress": 113,
+		  "chamber": "house",
+		  "dc": true,
+		  "room": "2123 Rayburn HOB",
+		  "description": "Hearings to examine the state of the right to vote after the 2012 election.",
+		  "bill_ids": ["s2423-114", "s1910-114"],
+		  "url": "http://energycommerce.house.gov/markup/committee-organizational-meeting-113th-congress",
+		  "hearing_type": "Hearing"
+		}
 	end
 
 	def setup
+		@hearing = Hearing.new(data)
 	end
 
-  test "it " do
+  test "it sets type" do
+		expected = "Hearing"
+		assert_equal expected, hearing.type
   end
 
+	test "it sets date" do
+		expected = "January 22, 2013"
+		assert_equal expected, hearing.date
+  end
+
+	test "it sets time" do
+		expected = "3:00 PM"
+		assert_equal expected, hearing.time
+  end
+
+	test "it sets committee_name" do
+		expected = "House Committee on Energy and Commerce"
+		assert_equal expected, hearing.committee_name
+	end
+
+	test "it sets room" do
+		expected = "2123 Rayburn HOB"
+		assert_equal expected, hearing.room
+  end
+
+	test "it sets bills" do
+		expected = ["<a href='http://beta.congress.gov/bill/114th/senate-bill/2423'>A bill making appropriations to address the heroin and opioid drug abuse epidemic for the fiscal year ending September 30, 2016, and for other purposes.</a>",
+								"<a href='http://beta.congress.gov/bill/114th/senate-bill/1910'>Financial Services and General Government Appropriations Act, 2016</a>"
+							 ]
+		assert_equal expected, hearing.bills
+  end
+
+	test "it sets description" do
+		expected = "Hearings to examine the state of the right to vote after the 2012 election."
+		assert_equal expected, hearing.description
+  end
+
+	test "it sets url" do
+		expected = "<a href='http://energycommerce.house.gov/markup/committee-organizational-meeting-113th-congress'>more info...</a>"
+		assert_equal expected, hearing.url
+  end
 end
