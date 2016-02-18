@@ -68,7 +68,7 @@ class Representative
 	end
 
 	def committee_hearings
-		committees.each { |committee| committee.hearings }
+		committees.map { |committee| committee.hearings }.flatten
 	end
 
 	private

@@ -1,8 +1,6 @@
 require 'test_helper'
 
 class RepresentativeTest < ActiveSupport::TestCase
-	attr_reader :rep
-
 	def data
 		{:bioguide_id=>"G000562",
 		 :birthday=>"1974-08-22",
@@ -90,5 +88,20 @@ class RepresentativeTest < ActiveSupport::TestCase
 	test "it sets a term window" do
 		expected = "January 6, 2015 - January 3, 2021"
 		assert_equal expected, @rep.term_window
+	end
+
+	test "it sets a rep_id" do
+		expected = data[:bioguide_id]
+		assert_equal expected, @rep.rep_id
+	end
+
+	test "it sets committees" do
+		assert_equal 15, @rep.committees.count
+		assert_equal Committee, @rep.committees.first.class
+	end
+
+	test "it sets committee_hearings" do
+		assert_equal 80, @rep.committee_hearings.count
+		assert_equal Hearing, @rep.committee_hearings.first.class
 	end
 end
