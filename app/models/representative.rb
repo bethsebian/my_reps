@@ -9,8 +9,35 @@ class Representative
 		GovDataService.new
 	end
 
-	def representatives
-		build_object(service.representatives)
+	def image_url
+		"http://bioguide.congress.gov/bioguide/photo/#{@data[:bioguide_id][0]}/#{@data[:bioguide_id]}.jpg"
+	end
+
+	def birthday_and_age
+	end
+
+	def chamber_rank_state
+	end
+
+	def name
+	end
+
+	def state_and_district
+	end
+
+	def party
+	end
+
+	def twitter
+	end
+
+	def website
+	end
+
+	def phone
+	end
+
+	def term_time
 	end
 
 	def latitude
