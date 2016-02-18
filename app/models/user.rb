@@ -11,4 +11,18 @@ class User < ActiveRecord::Base
 		user.save
 		user
 	end
+
+	def representatives
+		service = GovDataService.new
+		service.representatives(latitude, longitude)
+	end
+
+	def latitude
+		(39.73696)
+	end
+
+	def longitude
+		(-104.95776)
+	end
+
 end
