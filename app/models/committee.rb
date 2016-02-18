@@ -2,8 +2,7 @@ class Committee
 	attr_reader :data
 
 	def initialize(data)
-		binding.pry
-		@data
+		@data = data
 	end
 
 	def service
@@ -16,14 +15,6 @@ class Committee
 
 	def committee_name
 		@data[:name]
-	end
-
-	def committee_parent_id
-		@data[:parent_committee_id]
-	end
-
-	def subcommittee?
-		@data[:subcommittee]
 	end
 
 	def hearings

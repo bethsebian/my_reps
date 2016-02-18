@@ -67,14 +67,14 @@
               </tr>
               <% representative.committee_hearings.each do |hearing| %>
     						<tr>
-                  <th>hearing.type</th>
-                  <th>hearing.date</th>
-                  <th>hearing.time</th>
-                  <th>hearing.committee_name</th>
-                  <th>hearing.room</th>
-                  <th>hearing.bills</th>
-                  <th>hearing.description.</th>
-                  <th>hearing.more_info</th>
+                  <th><%= hearing.type %></th>
+                  <th><%= hearing.date %></th>
+                  <th><%= hearing.time %></th>
+                  <th><%= hearing.committee_name %></th>
+                  <th><%= hearing.room %></th>
+                  <th><%= hearing.bills %></th>
+                  <th><%= hearing.description %></th>
+                  <th><%= hearing.url %></th>
     						</tr>
               <% end %>
     				</table>

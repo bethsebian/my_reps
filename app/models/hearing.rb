@@ -10,7 +10,7 @@ class Hearing
 	end
 
 	def type
-		@data[:hearing_type].capitalize
+		@data[:hearing_type] || "Hearing"
 	end
 
 	def date
