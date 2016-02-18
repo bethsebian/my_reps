@@ -1,5 +1,3 @@
-<%= @user %>
-<%= @representatives %>
 <div id="index-banner">
   <div class="section no-pad-bot">
     <div class="container">
@@ -14,9 +12,9 @@
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block center">
-  					<img src="" class="circle responsive-img dashboard-rep-photo">
-            <h5 class="center"><a href="/jane-doe">Jane Doe</a></h5>
-  					<h6 class="center">U.S. Senate, New York</h6>
+  					<img src="<%= representative.image_url %>" class="circle responsive-img dashboard-rep-photo">
+            <h5 class="center"><a href="/jane-doe"><%= representative.name %></a></h5>
+  					<h6 class="center"><%= representative.chamber_rank_state %></h6>
           </div>
         </div>
         <div class="col s12 m8">
@@ -24,32 +22,35 @@
   					<table class="rep-info-table">
   						<col width="90px">
   						<col width="200px">
-  						<tr>
-  						  <td><h6><b>D.C. Office Location:</h6></b></td>
-  						  <td>448 Russell Senate Office Building</td>
+              <tr>
+  						  <td><h6><b>Term</h6></b></td>
+  						  <td><%= representative.term_window %></td>
   						</tr>
-  						<tr>
-  						  <td><h6><b>D.C. Office Phone:</h6></b></td>
-  						  <td>202-224-3353</td>
+              <tr>
+  						  <td><h6><b>Birthday</h6></b></td>
+  						  <td><%= representative.birthday_and_age %></td>
   						</tr>
-  						<tr>
-  						  <td><h6><b>District Office Phone:</h6></b></td>
-  						  <td>614-469-6774</td>
+              <tr>
+  						  <td><h6><b>Political Party</h6></b></td>
+  						  <td><%= representative.party %></td>
   						</tr>
-  						<tr>
-  						  <td><h6><b>Residence:</h6></b></td>
-  						  <td>Chappaqua, NY</td>
+              <tr>
+  						  <td><h6><b>Phone</h6></b></td>
+  						  <td><%= representative.phone %></td>
   						</tr>
-  						<tr>
-  						  <td><h6><b>Terms:</h6></b></td>
-  						  <td>2</td>
+              <tr>
+  						  <td><h6><b>Website</h6></b></td>
+  						  <td><a href="<%= representative.website %>" target="_blank"><%= representative.website %></a></td>
+  						</tr>
+              <tr>
+  						  <td><h6><b>Twitter</h6></b></td>
+                <td><a href="http://www.twitter.com/<%= representative.twitter %>" target="_blank"><%= representative.twitter %></a></td>
   						</tr>
   					</table>
   					<p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
         </div>
       </div>
-
   		<div class="row">
         <div class="col s12 m12">
           <div class="icon-block">

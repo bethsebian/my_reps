@@ -63,7 +63,7 @@ class RepresentativeTest < ActiveSupport::TestCase
   end
 
 	test "it sets a name" do
-		expected = "Senator Cory Gardner"
+		expected = "Sen Cory Gardner"
 		assert_equal expected, @rep.name
   end
 
@@ -84,11 +84,11 @@ class RepresentativeTest < ActiveSupport::TestCase
 
 	test "it sets a phone" do
 		expected = "202-224-5941"
-		assert_equal expected, @rep.website
+		assert_equal expected, @rep.phone
   end
 
 	test "it sets a term window" do
 		expected = "January 6, 2015 - January 3, 2021"
-		assert_equal expected, @rep.website
+		assert_equal expected, @rep.term_window
 	end
 end
