@@ -51,12 +51,24 @@ class Representative
 		"#{term_start.strftime('%B%e, %Y')} - #{term_end.strftime('%B%e, %Y')}"
 	end
 
+	def rep_id
+		@data[:bioguide_id]
+	end
+
 	def latitude
 		(39.73696)
 	end
 
 	def longitude
 		(-104.95776)
+	end
+
+	def committees
+		service.committees(rep_id)
+	end
+
+	def committee_hearings
+		committees.each { |committee| committee.hearings }
 	end
 
 	private

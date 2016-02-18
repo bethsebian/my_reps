@@ -48,8 +48,8 @@ class RepresentativeTest < ActiveSupport::TestCase
 	end
 
   test "it sets an image url" do
-		url = "http://bioguide.congress.gov/bioguide/photo/G/G000562.jpg"
-		assert_equal url, @rep.image_url
+		expected = "http://bioguide.congress.gov/bioguide/photo/G/G000562.jpg"
+		assert_equal expected, @rep.image_url
   end
 
 	test "it sets a birthday and age" do
@@ -58,7 +58,7 @@ class RepresentativeTest < ActiveSupport::TestCase
   end
 
 	test "it sets a chamber, rank, and state" do
-		expected = "U.S. Senate, Junior, Colorado (at-large)"
+		expected = "U.S. Senate, Colorado"
 		assert_equal expected, @rep.chamber_rank_state
   end
 
