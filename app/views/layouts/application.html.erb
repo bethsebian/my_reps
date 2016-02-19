@@ -23,13 +23,18 @@
     <div class="nav-wrapper container" id="nav-text">
       <a id="logo-container" href="/" class="brand-logo">MyReps</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="/dashboard">My Dashboard</a></li>
-        <li><a href="/logout">Log Out</a></li>
+        <% if current_user %>
+          <li><a href="/dashboard">My Dashboard</a></li>
+          <li><a href="/logout">Log Out</a></li>
+        <% end %>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="/dashboard">My Dashboard</a></li>
-        <li><a href="/logout">Log Out</a></li>
+        <% if current_user %>
+          <li><a href="/dashboard">My Dashboard</a></li>
+          <li><a href="/logout">Log Out</a></li>
+        <% end %>
+
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
