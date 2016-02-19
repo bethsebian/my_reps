@@ -1,5 +1,6 @@
 class Representative
 	attr_reader :data
+	# attr_accessor :hearings
 
 	def initialize(data)
 		@data = data
@@ -68,18 +69,25 @@ class Representative
 	end
 
 	def hearings
-		hearings = []
-		committees.each do |committee|
-			if !committee.hearings.empty?
-				committee.hearings.each do |hearing|
-					hearing.data[:committee_name] = committee.committee_name
-					hearings << hearing
-				end
-			end
-		end
+		@hearings_list = []
+		committees.each { |committee| add_committees_hearings_to_list(committee) }
+		sort_hearings(@hearings_list)
+	end
+
+	def add_committees_hearings_to_list(committee)
+		ch = committee.hearings
+		ch.each { |hearing| add_each_hearing_to_list(hearing, committee) } if !ch.empty?
+	end
+
+	def add_each_hearing_to_list(hearing, committee)
+		hearing.data[:committee_name] = committee.committee_name
+		@hearings_list << hearing
+	end
+
+	def sort_hearings(hearings)
 		hearings.sort do |a,b|
-  		comp = (a.date <=> b.date)
-  		comp.zero? ? (a.time <=> b.time) : comp
+			comp = (a.date <=> b.date)
+			comp.zero? ? (a.time <=> b.time) : comp
 		end
 	end
 
