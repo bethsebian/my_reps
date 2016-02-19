@@ -6,8 +6,8 @@ class CommitteeTest < ActiveSupport::TestCase
   def data
     {
     chamber: "senate",
-    committee_id: "SSAP",
-    name: "Senate Committee on Appropriations",
+    committee_id: "SSEG",
+    name: "Senate Committee on Energy and Natural Resources",
     subcommittee: false
     }
   end
@@ -17,17 +17,16 @@ class CommitteeTest < ActiveSupport::TestCase
   end
 
   test "it sets committee id" do
-    expected = "SSAP"
+    expected = data[:committee_id]
     assert_equal expected, @committee.committee_id
   end
 
   test "it sets committee name" do
-    expected = "Senate Committee on Appropriations"
+    expected = data[:name]
     assert_equal expected, @committee.committee_name
   end
 
   test "it sets hearing" do
-    skip
     assert_equal 20, @committee.hearings.count
     assert_equal Hearing, @committee.hearings.first.class
   end
