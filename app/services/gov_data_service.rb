@@ -16,7 +16,9 @@ class GovDataService
 	end
 
 	def hearings(committee_id)
-		raw = parse(connection.get("/hearings?committee_id=#{committee_id}&apikey=#{ENV['SUNLIGHT_API_KEY']}"))
+		monday = Date.today.beginning_of_week.strftime('%Y-%m-%e')
+		friday = Date.today.end_of_week.strftime('%Y-%m-%e')
+		raw = parse(connection.get("/hearings?committee_id=#{committee_id}&occurs_at__gte=#{monday}T00:00:00Z&apikey=#{ENV['SUNLIGHT_API_KEY']}"))
 		array_of_objects = raw[:results].map { |hearing| Hearing.new(hearing) }
 	end
 

@@ -67,8 +67,17 @@ class Representative
 		service.committees(rep_id)
 	end
 
-	def committee_hearings
-		committees.map { |committee| committee.hearings }.flatten
+	def hearings
+		hearings = []
+		committees.each do |committee|
+			if !committee.hearings.empty?
+				committee.hearings.each do |hearing|
+					hearing.data[:committee_name] = committee.committee_name
+					hearings << hearing
+				end
+			end
+		end
+		hearings
 	end
 
 	private
