@@ -100,8 +100,8 @@ class RepresentativeTest < ActiveSupport::TestCase
 		assert_equal Committee, @rep.committees.first.class
 	end
 
-	test "it sets committee_hearings" do
-		assert_equal 80, @rep.committee_hearings.count
-		assert_equal Hearing, @rep.committee_hearings.first.class
+	test "it sets hearings" do
+		assert_equal 5, @rep.hearings.count
+		assert_equal Hearing, @rep.hearings.first.class
 	end
 end

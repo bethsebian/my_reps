@@ -77,7 +77,10 @@ class Representative
 				end
 			end
 		end
-		hearings
+		hearings.sort do |a,b|
+  		comp = (a.date <=> b.date)
+  		comp.zero? ? (a.time <=> b.time) : comp
+		end
 	end
 
 	private
