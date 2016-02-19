@@ -1,5 +1,6 @@
 class Hearing
 	attr_reader :data
+	attr_accessor :committee_name
 
 	def initialize(data)
 		@data = data
@@ -24,7 +25,7 @@ class Hearing
 	end
 
 	def committee_name
-		service.committee_name(@data[:committee_id])
+		@data[:committee_name]
 	end
 
 	def room
@@ -38,7 +39,7 @@ class Hearing
 	end
 
 	def description
-		@data[:description]
+		@data[:description].truncate(150, separator: ' ')
 	end
 
 	def url

@@ -13,7 +13,7 @@
         <div class="col s12 m4">
           <div class="icon-block center">
   					<img src="<%= representative.image_url %>" class="circle responsive-img dashboard-rep-photo">
-            <h5 class="center"><a href="/jane-doe"><%= representative.name %></a></h5>
+            <h5 class="center"><%= representative.name %></h5>
   					<h6 class="center"><%= representative.chamber_rank_state %></h6>
           </div>
         </div>
@@ -47,41 +47,44 @@
                 <td><a href="http://www.twitter.com/<%= representative.twitter %>" target="_blank"><%= representative.twitter %></a></td>
   						</tr>
   					</table>
-  					<p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
         </div>
       </div>
   		<div class="row">
         <div class="col s12 m12">
           <div class="icon-block">
-  					<table class="rep-schedule-table">
+            <table class="rep-schedule-table">
+              <col width="auto">
+              <col width="15%">
+              <col width="10%">
+  						<col width="auto">
+              <col width="40%">
+  						<col width="10%">
               <tr>
                 <th>Type</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>Committee Name</th>
-                <th>Room</th>
-                <th>Bills</th>
                 <th>Description</th>
                 <th>Links</th>
               </tr>
-              <% representative.committee_hearings.each do |hearing| %>
+              <% representative.hearings.each do |hearing| %>
     						<tr>
-                  <th><%= hearing.type %></th>
-                  <th><%= hearing.date %></th>
-                  <th><%= hearing.time %></th>
-                  <th><%= hearing.committee_name %></th>
-                  <th><%= hearing.room %></th>
-                  <th><%= hearing.bills %></th>
-                  <th><%= hearing.description %></th>
-                  <th><%= hearing.url %></th>
+                  <td><%= hearing.type %></td>
+                  <td><%= hearing.date %></td>
+                  <td><%= hearing.time %></td>
+                  <td><%= hearing.committee_name %> </td>
+                  <td><%= hearing.description %></td>
+                  <td><%= hearing.url.html_safe %></td>
     						</tr>
               <% end %>
-    				</table>
+            </table>
           </div>
         </div>
       </div>
     </div>
+    <br><br>
+    <hr class="hr-grey-65"/>
   	<br><br>
   <% end %>
 </div>
