@@ -39,7 +39,7 @@ class UserLogsOutTest < ActionDispatch::IntegrationTest
     visit "/"
     click_link "Login with Github"
     assert_equal '/dashboard', current_path
-		click_link "Log Out"
+		first(:link, "Log Out").click
 		assert_equal '/', current_path
   end
 end
