@@ -7,7 +7,9 @@
         <h5 class="header col s12 light white-text">Helping you keep an eye on your electeds</h5>
       </div>
       <div class="row center">
-        <%= link_to "Login with Github", "/auth/github", id: 'id="download-button', class: "btn-large waves-effect waves-light red-background" %>
+        <% if !current_user %>
+          <%= link_to "Login with Github", "/auth/github", id: 'id="download-button', class: "btn-large waves-effect waves-light red-background" %>
+        <% end %>
       </div>
       <br><br>
     </div>

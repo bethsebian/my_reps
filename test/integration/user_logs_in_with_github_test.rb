@@ -44,4 +44,11 @@ class UserLogsInWithGithubTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Representatives Working for You")
     assert page.has_link?("Log Out")
   end
+
+  test "login button hidden after log in" do
+    visit "/"
+    click_link "Login with Github"
+    visit "/"
+    refute page.has_link?("Login with Github")
+  end
 end
