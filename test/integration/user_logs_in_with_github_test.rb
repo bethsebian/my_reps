@@ -38,6 +38,7 @@ class UserLogsInWithGithubTest < ActionDispatch::IntegrationTest
   test "logging in" do
     visit "/"
     assert_equal 200, page.status_code
+    refute page.has_link?("Log Out")
     click_link "Login with Github"
     assert_equal '/dashboard', current_path
     assert page.has_content?("Representatives Working for You")
