@@ -17,6 +17,10 @@ gem 'figaro'
 group :development, :test do
   gem 'pry'
   gem 'faraday'
+  gem 'capybara'
+  gem 'minitest-rails'
+  gem 'minitest-rails-capybara'
+  gem 'launchy'
 end
 
 group :development do

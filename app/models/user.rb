@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 		user = User.find_or_create_by(provider: auth['provider'], uid: auth['uid'])
 
 		user.name = auth['info']['name']
+		user.first_name = auth['info']['name'].split.first
 		user.nickname = auth['info']['nickname']
 		user.email = auth['info']['email']
 		user.image_url = auth['info']['image_url']
